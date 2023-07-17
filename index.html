@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>temperature converter </title>
+     <style>
+        body{
+          padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+            color: rgb(193, 151, 87);
+            font-size: 30px;
+            font-weight: 30px;
+        }
+        #container{
+            text-align: center;
+            background-color: aqua;
+            padding: 100px;
+        }
+        .div{
+            display: inline-block;
+        }
+        .a{
+            padding:5px 10px;
+            margin: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            width: 250px;
+            text-align: center;
+
+        }
+        label{
+            font-size: 30px;
+           
+        }
+     </style>
+
+    </head>
+    <body>
+        <h1 >TEMPERATURE CONVERTER </h1>
+        <div  id="container">
+
+           <div class="div">
+            <label>
+             CELSIUS
+            </label>
+            <br>
+            <input type="number" value="0" class="a" id="cel">
+
+           </div>
+           
+           <div class="div">
+            <label>
+                FAHRENHEIT
+
+            </label>
+            <br>
+            <input type="number" value="32" class="a" id="fah">
+
+           </div>
+
+
+        </div>
+        <script>
+            let cell=document.getElementById("cel");
+            let fah=document.getElementById("fah");
+            cell.addEventListener("input",function(){
+                // console.log("cell changed....");
+                let c=this.value;
+                let f=(c * 9/5) + 32;
+           
+                if(!Number.isInteger(f)){
+
+                    f=f.toFixed(4);
+
+                }
+                     fah.value=f;
+
+
+
+
+            });
+            fah.addEventListener("input",function(){
+                // console.log("fahreneit changes ...");
+                let f=this.value;
+                let c=(f - 32) * 5/9 ;
+                if(!Number.isInteger(c))
+                {
+                    c=c.toFixed(4);
+                    
+                }
+                cell.value=c;
+
+
+
+
+            });
+
+        </script>          
+         
+    </body>
+</html>
